@@ -35,7 +35,6 @@
 		  <artifactId>jstl</artifactId>
 		</dependency>
 	<!-- 플러그인 추가 End -->	
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
