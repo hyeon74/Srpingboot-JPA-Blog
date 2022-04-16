@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cos.blog.repository.BoardRepository;
 import com.cos.blog.repository.UserRepository;
 
 @RestController
@@ -18,11 +19,29 @@ public class HttpControllerTest {
 	@Autowired
 	UserRepository userRepository;
 	
-	@GetMapping("/sqltest")
-	public String sqlTest() {
+	@Autowired
+	BoardRepository boardRepository;
+	
+	@GetMapping("/getAllUser")
+	public String userTest() {
 		
-		return userRepository.selectAllJPQL().toString();
+		return userRepository.selectAllUser().toString();
 	}
+	
+	@GetMapping("/getUser")
+	public String userTest2() {
+		
+		return userRepository.selectUser(1).toString();
+	}
+	
+	
+	
+	@GetMapping("/baordTest")
+	public String baartTest() {
+
+		return boardRepository.selectAllBoard().toString();
+	}
+	
 	
 	@GetMapping("/http/lombok")
 	public String lombokTest() {
