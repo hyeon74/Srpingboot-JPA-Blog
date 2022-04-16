@@ -1,17 +1,28 @@
 package com.cos.blog.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.cos.blog.repository.UserRepository;
 
 @RestController
 public class HttpControllerTest {
 	
 	private final static String TAG = "HttpControllerTest:";
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@GetMapping("/sqltest")
+	public String sqlTest() {
+		
+		return userRepository.selectAllJPQL().toString();
+	}
 	
 	@GetMapping("/http/lombok")
 	public String lombokTest() {
